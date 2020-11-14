@@ -11,6 +11,9 @@ export const MessageContainer = styled.div(
   max-width: 266px;
   border-radius: 4px;
   margin-top: 2px;
+  :first-child {
+    margin-top: auto !important;
+  }
 `
 );
 

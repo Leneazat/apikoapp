@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-import { generatePath } from "react-router-dom";
+import { generatePath, useHistory } from "react-router-dom";
 import { routes } from "../../../routes";
 import {
   UserInfoContainerButtonsBox,
@@ -17,12 +17,19 @@ import {
 import { FavoriteIcon } from "../../../../icons/FavoriteIcon";
 import { UserViewAvatarContainer } from "../../../UserView/UserView.stlyes";
 import ModalChat from "./ModalChat";
+import { useStore } from "../../../../stores/createStore";
 
 export const UserInfoContainer = observer(({ product }) => {
   const [show, setShow] = useState(false);
+  const store = useStore();
+  const history = useHistory();
 
   function handleChatWithSeller() {
-    setShow(true);
+    if (store.auth.isLoggedIn === true) {
+      setShow(true);
+    } else {
+      history.push(routes.login);
+    }
   }
 
   return (

@@ -1,32 +1,48 @@
 import { useFormikContext } from "formik";
 import { observer } from "mobx-react";
-import React, { useEffect, useRef } from "react";
-import { useStore } from "../../../../stores/createStore";
-// import {} from "./PhotoPicker.styles";
+import React, { useCallback, useRef, useState } from "react";
+import Api from "../../../../api";
+import { Photo, PhotosContainer } from "./PhotoPicker.styles";
 
 const PhotoPicker = () => {
-  const store = useStore();
-  const { images, getImages } = store.uploads;
+  const inputRef = useRef();
+  const { values, setFieldValue } = useFormikContext();
+  const [isLoading, setLoading] = useState(false);
 
-  const { setFieldValue } = useFormikContext();
-  useEffect(() => {
-    setFieldValue("photos", getImages());
-  }, [images]);
+  const { photos } = values;
 
-  const ref = useRef();
+  const uploadImage = useCallback(async () => {
+    try {
+      setLoading(true);
+      const res = await Api.Uploads.uploadImage(inputRef.current.files[0]);
+      const image = res.data;
+      setFieldValue("photos", [...photos, image]);
+    } catch (error) {
+      console.log("err while uploading photo:", { error });
+    } finally {
+      setLoading(false);
+    }
+  }, [photos, setLoading]);
 
-  async function uploadImage() {
-    await store.uploads.uploadImage.run(ref.current.files[0]);
-  }
+  const onClick = () => {
+    inputRef.current.click();
+  };
 
   return (
-    <div>
-      <input accept='.jpg' type='file' ref={ref} />{" "}
-      <button onClick={uploadImage}>Send image to server</button>
-      {store.uploads.images.map((i) => (
-        <img src={i.url} width='200px' height='200px'></img>
+    <PhotosContainer>
+      {photos.map((i) => (
+        <Photo src={i} key={i} />
       ))}
-    </div>
+
+      {isLoading ? <h1>Loading</h1> : <h1 onClick={onClick}>qweqwe</h1>}
+
+      <input
+        style={{ display: "none" }}
+        accept='.jpg'
+        type='file'
+        ref={inputRef}
+        onChange={uploadImage}></input>
+    </PhotosContainer>
   );
 };
 

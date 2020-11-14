@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const ChatsWithMessagessContainer = styled.div`
   display: flex;
+  overflow: hidden;
 `;
 
 export const ChatsContainer = styled.aside`
@@ -25,4 +26,10 @@ export const ChatListLink = styled(Link)`
 export const MessageListMainContainer = styled.main`
   width: 100%;
   border: 1px solid #e7e9ed;
+`;
+
+export const InboxScreenContainer = styled.div`
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
 `;

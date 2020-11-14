@@ -1,4 +1,4 @@
-import { types } from "mobx-state-tree";
+import { getRoot, types } from "mobx-state-tree";
 import Api from "../../api";
 import { ProductModel } from "../Products/ProductModel";
 import { MessageSchema } from "../schemas";
@@ -32,5 +32,6 @@ function sendMessage(text) {
   return async function sendMessageFlow(flow, store) {
     const res = await Api.Chats.sendMessage(store.id, text);
     const result = flow.merge(res.data, MessageSchema);
+    getRoot(store).chats.getById(res.data.chatId).messages.addMessage(res.data);
   };
 }

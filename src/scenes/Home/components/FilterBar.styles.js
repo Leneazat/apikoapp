@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const FilterBarContainer = styled.div`
   display: flex;
-  width: 80%;
-  margin: 18px auto;
+  width: 840px;
   background: #ffffff;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.217111);
   border-radius: 4px;
@@ -62,4 +61,11 @@ export const FilterBarSeparator = styled.div`
   width: 12px;
   height: 1px;
   margin: 0 8px;
+`;
+
+export const FilterBarMainContainer = styled.div`
+  display: flex;
+  margin-top: 18px;
+  align-items: center;
+  justify-content: center;
 `;

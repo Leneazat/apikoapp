@@ -10,8 +10,9 @@ export const Login = () => {
   const store = useStore();
 
   async function onSubmit({ email, password }) {
-    await store.auth.login.run({ email, password });
-    history.push(routes.home);
+    await store.auth.login.run({ email, password }, () =>
+      history.push(routes.home)
+    );
   }
 
   return (

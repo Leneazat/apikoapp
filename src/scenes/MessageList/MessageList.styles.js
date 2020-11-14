@@ -105,6 +105,5 @@ export const MessageListContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  justify-content: flex-end;
   height: 100%;
 `;

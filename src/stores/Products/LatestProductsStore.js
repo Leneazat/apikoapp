@@ -26,7 +26,7 @@ function fetchLatest() {
   };
 }
 
-function addProduct({ title, location, description, photos, price }) {
+function addProduct({ title, location, description, photos, price }, cb) {
   return async () => {
     const res = await Api.Products.addProduct({
       title,
@@ -35,5 +35,6 @@ function addProduct({ title, location, description, photos, price }) {
       photos,
       price,
     });
+    cb(res.data.id);
   };
 }

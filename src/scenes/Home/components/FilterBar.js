@@ -6,6 +6,7 @@ import {
   FilterBarCategoryContainer,
   FilterBarCategoryText,
   FilterBarContainer,
+  FilterBarMainContainer,
   FilterBarPriceContainer,
   FilterBarPriceText,
   FilterBarSeparator,
@@ -13,20 +14,22 @@ import {
 
 const FilterBar = observer(() => {
   return (
-    <FilterBarContainer>
-      <FilterBarCategoryContainer>
-        <FilterBarGridIcon />
-        <FilterBarCategoryText>Choose Category</FilterBarCategoryText>
-        <FilterBarArrowIcon />
-      </FilterBarCategoryContainer>
-      <FilterBarPriceContainer>
-        <FilterBarPriceText>Price from (USD)</FilterBarPriceText>
-      </FilterBarPriceContainer>
-      <FilterBarSeparator></FilterBarSeparator>
-      <FilterBarPriceContainer>
-        <FilterBarPriceText>Price to (USD)</FilterBarPriceText>
-      </FilterBarPriceContainer>
-    </FilterBarContainer>
+    <FilterBarMainContainer>
+      <FilterBarContainer>
+        <FilterBarCategoryContainer>
+          <FilterBarGridIcon />
+          <FilterBarCategoryText>Choose Category</FilterBarCategoryText>
+          <FilterBarArrowIcon />
+        </FilterBarCategoryContainer>
+        <FilterBarPriceContainer>
+          <FilterBarPriceText>Price from (USD)</FilterBarPriceText>
+        </FilterBarPriceContainer>
+        <FilterBarSeparator></FilterBarSeparator>
+        <FilterBarPriceContainer>
+          <FilterBarPriceText>Price to (USD)</FilterBarPriceText>
+        </FilterBarPriceContainer>
+      </FilterBarContainer>
+    </FilterBarMainContainer>
   );
 });
 

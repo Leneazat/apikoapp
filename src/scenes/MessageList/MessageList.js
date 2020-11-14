@@ -51,9 +51,6 @@ export const MessageList = observer(() => {
     }
   }
 
-  console.log(333, chat);
-  console.log(123, chat.messages.asList);
-
   return (
     <>
       <ChatContainer>

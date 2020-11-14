@@ -2,7 +2,6 @@ import { Formik } from "formik";
 import { observer } from "mobx-react";
 import React from "react";
 import Avatar from "react-avatar";
-import styled from "styled-components";
 import { Header } from "../../components";
 import { useStore } from "../../stores/createStore";
 import {
@@ -23,7 +22,6 @@ const EditProfile = observer(() => {
 
   async function onSubmit({ fullName, avatar, phone, location }) {
     await store.auth.editAccount.run({ fullName, avatar, phone, location });
-    console.log(123);
   }
 
   return (

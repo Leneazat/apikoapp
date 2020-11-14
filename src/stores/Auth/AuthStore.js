@@ -21,12 +21,18 @@ export const AuthStore = types
     },
   }));
 
-function loginFlow({ password, email }) {
+function loginFlow({ password, email }, cb) {
   return async (flow) => {
-    const res = await Api.Auth.login({ password, email });
-    Api.Auth.setToken(res.data.token);
-    getRoot(flow).viewer.setViewer(res.data.user);
-    getRoot(flow).auth.setIsLoggedIn(true);
+    try {
+      const res = await Api.Auth.login({ password, email });
+      Api.Auth.setToken(res.data.token);
+      getRoot(flow).viewer.setViewer(res.data.user);
+      getRoot(flow).auth.setIsLoggedIn(true);
+      cb();
+    } catch (error) {
+      console.log("Error while login", { error });
+      alert("User is not registered");
+    }
   };
 }
 
@@ -48,6 +54,5 @@ function editAccount({ fullName, avatar, phone, location }) {
       location,
     });
     getRoot(flow).viewer.setViewer(res.data.user);
-    console.log(888, res.data);
   };
 }

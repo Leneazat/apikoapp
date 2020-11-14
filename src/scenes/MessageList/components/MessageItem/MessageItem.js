@@ -7,10 +7,7 @@ const MessageItem = observer(({ item }) => {
   const store = useStore();
   const { text, ownerId } = item;
 
-  console.log(555, store);
-
   const currentUserId = store.viewer.user.id;
-  console.log(currentUserId);
 
   const isCurrentUserMessage = currentUserId === ownerId;
 

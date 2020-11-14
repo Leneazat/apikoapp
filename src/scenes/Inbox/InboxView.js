@@ -10,6 +10,7 @@ import {
   ChatsContainer,
   ChatsList,
   ChatsWithMessagessContainer,
+  InboxScreenContainer,
   MessageListMainContainer,
 } from "./InboxView.styles";
 import ChatListItem from "./components/ChatListItem";
@@ -22,7 +23,7 @@ const InboxView = observer(() => {
   }, []);
 
   return (
-    <>
+    <InboxScreenContainer>
       <Header withSearchBar={false}></Header>
       <ChatsWithMessagessContainer>
         <ChatsContainer>
@@ -39,7 +40,7 @@ const InboxView = observer(() => {
           <Route path={routes.chat} component={MessageList} />
         </MessageListMainContainer>
       </ChatsWithMessagessContainer>
-    </>
+    </InboxScreenContainer>
   );
 });
 
