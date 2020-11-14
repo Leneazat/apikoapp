@@ -1,0 +1,57 @@
+.userName {
+  font-family: Helvetica;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 20px;
+  letter-spacing: 1px;
+  color: #000000;
+}
+
+.userEmail {
+  font-family: Helvetica;
+  font-size: 10px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  color: #979797;
+}
+
+.userProfile {
+  font-family: Helvetica;
+  font-size: 10px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  color: #349a89;
+  text-decoration: none;
+}
+
+.userEditProfile {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #349a89;
+  text-decoration: none;
+  padding-bottom: 15px;
+  padding-left: 16px;
+}
+
+.userLogoutButton {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #349a89;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  border-top: 1px solid #e4e4e4;
+  padding: 14px 0 14px 16px;
+  cursor: pointer;
+}
