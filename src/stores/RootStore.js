@@ -23,7 +23,6 @@ export const RootStore = types
 
         if (!token) {
           return;
-          // throw new Error("Unauthorized");
         }
 
         Api.Auth.setToken(token);
