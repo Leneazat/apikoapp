@@ -6,7 +6,6 @@ import { Login } from "../Login/Login";
 import { ResetPass } from "./components/ResetPass/ResetPass";
 import { Register } from "../Register/Register";
 import { observer } from "mobx-react";
-import Footer from "../../components/Footer/Footer";
 
 function Auth() {
   return (

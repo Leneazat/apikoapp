@@ -1,6 +1,5 @@
 import { types, getRoot, getSnapshot } from "mobx-state-tree";
 import Api from "../../api";
-import { Chats } from "../../api/Api";
 import { ChatSchema } from "../schemas";
 import { UserModel } from "../Users/UserModel";
 import { asyncModel } from "../utils";

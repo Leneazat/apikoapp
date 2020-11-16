@@ -36,12 +36,18 @@ function loginFlow({ password, email }, cb) {
   };
 }
 
-function registerFlow({ fullName, password, email }) {
+function registerFlow({ fullName, password, email }, cb) {
   return async (flow) => {
-    const res = await Api.Auth.register({ fullName, password, email });
-    Api.Auth.setToken(res.data.token);
-    getRoot(flow).viewer.setViewer(res.data.user);
-    getRoot(flow).auth.setIsLoggedIn(true);
+    try {
+      const res = await Api.Auth.register({ fullName, password, email });
+      Api.Auth.setToken(res.data.token);
+      getRoot(flow).viewer.setViewer(res.data.user);
+      getRoot(flow).auth.setIsLoggedIn(true);
+      cb();
+    } catch (error) {
+      console.log("Error while registration", { error });
+      alert("This user already exists");
+    }
   };
 }
 

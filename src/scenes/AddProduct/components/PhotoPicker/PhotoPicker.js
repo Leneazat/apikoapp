@@ -2,7 +2,15 @@ import { useFormikContext } from "formik";
 import { observer } from "mobx-react";
 import React, { useCallback, useRef, useState } from "react";
 import Api from "../../../../api";
-import { Photo, PhotosContainer } from "./PhotoPicker.styles";
+import {
+  Photo,
+  PhotoPickerLabel,
+  PhotosContainer,
+  PhotoUploadContainer,
+  PhotoUploadPicContainer,
+  PhotoUploadPicHorizontal,
+  PohotoUploadPicVertical,
+} from "./PhotoPicker.styles";
 
 const PhotoPicker = () => {
   const inputRef = useRef();
@@ -29,20 +37,32 @@ const PhotoPicker = () => {
   };
 
   return (
-    <PhotosContainer>
-      {photos.map((i) => (
-        <Photo src={i} key={i} />
-      ))}
+    <>
+      <PhotoPickerLabel>Photos</PhotoPickerLabel>
+      <PhotosContainer>
+        {photos.map((i) => (
+          <Photo src={i} key={i} />
+        ))}
 
-      {isLoading ? <h1>Loading</h1> : <h1 onClick={onClick}>qweqwe</h1>}
+        {isLoading ? (
+          <h1>Loading</h1>
+        ) : (
+          <PhotoUploadContainer onClick={onClick}>
+            <PhotoUploadPicContainer>
+              <PhotoUploadPicHorizontal></PhotoUploadPicHorizontal>
+              <PohotoUploadPicVertical></PohotoUploadPicVertical>
+            </PhotoUploadPicContainer>
+          </PhotoUploadContainer>
+        )}
 
-      <input
-        style={{ display: "none" }}
-        accept='.jpg'
-        type='file'
-        ref={inputRef}
-        onChange={uploadImage}></input>
-    </PhotosContainer>
+        <input
+          style={{ display: "none" }}
+          accept='.jpg, .png, .jpeg'
+          type='file'
+          ref={inputRef}
+          onChange={uploadImage}></input>
+      </PhotosContainer>
+    </>
   );
 };
 

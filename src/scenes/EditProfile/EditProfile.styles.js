@@ -1,6 +1,5 @@
 import { Field, Form } from "formik";
 import styled from "styled-components";
-import { Input } from "../../styles";
 
 export const EditProfileContainer = styled.div`
   display: flex;

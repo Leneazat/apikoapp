@@ -57,6 +57,7 @@ export const AddProductFormSubmit = styled.button`
   text-transform: uppercase;
   border: none;
   align-self: center;
+  cursor: pointer;
 `;
 
 export const AddProductFormHeader = styled.h1`

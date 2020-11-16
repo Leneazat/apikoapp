@@ -65,7 +65,6 @@ export function asyncModel(thunk, auto = true) {
 
 export function createPersist(store) {
   onSnapshot(store, (snapshot) => {
-    // console.log(JSON.stringify(snapshot, null, 2));
     window.localStorage.setItem(
       "__persist",
       JSON.stringify({

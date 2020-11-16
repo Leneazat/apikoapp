@@ -10,8 +10,9 @@ export const Register = () => {
   const store = useStore();
 
   async function onSubmit({ fullName, email, password }) {
-    await store.auth.register.run({ fullName, email, password });
-    history.push(routes.home);
+    await store.auth.register.run({ fullName, email, password }, () =>
+      history.push(routes.home)
+    );
   }
 
   return <RegistrationForm onSubmit={onSubmit}></RegistrationForm>;

@@ -9,6 +9,7 @@ export const MessageContainer = styled.div(
   padding: 8px;
   display: flex;
   max-width: 266px;
+  word-break: break-word;
   border-radius: 4px;
   margin-top: 2px;
   :first-child {

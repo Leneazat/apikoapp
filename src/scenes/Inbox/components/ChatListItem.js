@@ -1,6 +1,5 @@
 import { observer } from "mobx-react";
 import React from "react";
-import MessageList from "../../MessageList/MessageList";
 import {
   ChatListItemContainer,
   ChatListItemMessageTime,

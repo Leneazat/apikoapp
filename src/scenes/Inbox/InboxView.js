@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import React, { useEffect } from "react";
-import { generatePath, Link, Route } from "react-router-dom";
+import { generatePath, Route } from "react-router-dom";
 import { Header } from "../../components";
 import { useStore } from "../../stores/createStore";
 import { routes } from "../routes";

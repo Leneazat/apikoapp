@@ -19,7 +19,7 @@ export const Home = observer(() => {
       <FilterBar />
       <ProductListContainer>
         {store.latestProducts.items.map((item) => (
-          <ProductItem item={item}></ProductItem>
+          <ProductItem item={item} key={item}></ProductItem>
         ))}
       </ProductListContainer>
     </>
