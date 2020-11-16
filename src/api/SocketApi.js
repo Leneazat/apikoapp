@@ -4,7 +4,7 @@ class SocketApi {
   socket = null;
 
   init(token) {
-    this.socket = socket("http://localhost:3000/", {
+    this.socket = socket("https://apikofinalapp.herokuapp.com/", {
       query: {
         token,
       },
