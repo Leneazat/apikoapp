@@ -1,8 +1,11 @@
 {
   "root": "build/",
   "proxies": {
+    "/socket.io": {
+      "origin": "${API_URL}"
+    },
     "/api": {
-      "origin": "https://apiko-intensive-backend.herokuapp.com/"
+      "origin": "${API_URL}"
     }
   }
 }
