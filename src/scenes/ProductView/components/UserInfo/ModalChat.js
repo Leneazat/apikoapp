@@ -33,6 +33,7 @@ const ModalChat = ({ children, show, setShow, product }) => {
       history.push(generatePath(routes.inbox, { chatId }));
     } catch (err) {
       console.log(err);
+      alert("Such a chat already exists");
     }
   }
 
