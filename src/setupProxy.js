@@ -10,9 +10,9 @@ const proxy = createProxyMiddleware({
 
 const wsProxy = createProxyMiddleware({
   target: "https://apiko-intensive-backend.herokuapp.com",
-  pathRewrite: {
-    "^/api": "",
-  },
+  // pathRewrite: {
+  //   "^/api": "",
+  // },
   changeOrigin: true,
   ws: true,
 });
